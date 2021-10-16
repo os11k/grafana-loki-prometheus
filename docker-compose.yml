@@ -1,0 +1,31 @@
+version: "3.5"
+
+services:
+  grafana:
+    container_name: grafana
+    network_mode: "host"
+    build: ./
+    restart: always
+    volumes:
+      - grafana_data:/var/lib/grafana
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "10"
+  prometheus:
+    container_name: prometheus
+    network_mode: "host"
+    image: prom/prometheus:v2.30.2
+    restart: always
+    volumes:
+      - ./etc-prometheus:/etc/prometheus
+      - prometheus_data:/prometheus
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "10"
+volumes:
+    prometheus_data: {}
+    grafana_data: {}

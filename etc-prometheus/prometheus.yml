@@ -1,0 +1,43 @@
+global:
+  scrape_interval:     15s # By default, scrape targets every 15 seconds.
+
+  # Attach these labels to any time series or alerts when communicating with
+  # external systems (federation, remote storage, Alertmanager).
+  external_labels:
+    monitor: 'codelab-monitor'
+
+# A scrape configuration containing exactly one endpoint to scrape:
+# Here it's Prometheus itself.
+scrape_configs:
+  # The job name is added as a label job=<job_name> to any timeseries scraped from this config.
+  - job_name: 'prometheus'
+
+    static_configs:
+      - targets: ['producer.hostname.com:12798']
+        labels:
+          alias: 'producer'
+          type:  'cardano-node'
+      - targets: ['relay1.hostname.com:12798']
+        labels:
+          alias: 'relay1'
+          type:  'cardano-node'
+      - targets: ['relay2.hostname.com:12798']
+        labels:
+          alias: 'relay2'
+          type:  'cardano-node'
+
+  - job_name: "node"
+
+    static_configs:
+      - targets: ["producer.hostname.com:9100"]
+        labels:
+          alias: 'producer'
+          type:  'cardano-node'
+      - targets: ['relay1.hostname.com:9100']
+        labels:
+          alias: 'relay1'
+          type:  'cardano-node'
+      - targets: ['relay2.hostname.com:9100']
+        labels:
+          alias: 'relay2'
+          type:  'cardano-node'
