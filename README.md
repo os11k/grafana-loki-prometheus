@@ -3,7 +3,7 @@ grafana-with-prometheus
 
 This are docker-compose files for running grafana and prometheus from official docker images, I put latest version on this moment, but you can update those just simple editing docker-compose.yml and Dockerfile.
 
-This setup I use by myself to monitor my Cardano nodes. If you are here for same, just update `./etc-prometheus/prometheus.yml` with your proper hostnamee and run those 5 commands.
+This setup I use by myself to monitor my Cardano nodes. If you are here for same, just update `./etc-prometheus/prometheus.yml` with your proper hostnames and run those 5 commands.
 
 I assume you have node exporter running on relays and producers. From grafana server you can check it by runnig `curl destination:9100/metrics` for node exportor and curl `destination:12798/metrics` for relay/producer.
 
