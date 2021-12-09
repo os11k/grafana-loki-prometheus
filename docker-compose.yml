@@ -4,7 +4,7 @@ services:
   grafana:
     container_name: grafana
     network_mode: "host"
-    build: ./
+    image: grafana/grafana:latest
     restart: always
     volumes:
       - grafana_data:/var/lib/grafana
@@ -16,7 +16,7 @@ services:
   prometheus:
     container_name: prometheus
     network_mode: "host"
-    image: prom/prometheus:v2.31.1
+    image: prom/prometheus:latest
     restart: always
     volumes:
       - ./etc-prometheus:/etc/prometheus
