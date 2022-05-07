@@ -1,7 +1,7 @@
 grafana-with-prometheus
 ============
 
-This are docker-compose files for running grafana and prometheus from official docker images, I put latest version on this moment, but you can update those just simple editing docker-compose.yml and Dockerfile.
+This are docker-compose files for running grafana, loki and prometheus from official docker images.
 
 This setup I use by myself to monitor my Cardano nodes. If you are here for same, just update `./etc-prometheus/prometheus.yml` with your proper hostnames and run those 5 commands.
 

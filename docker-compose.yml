@@ -26,6 +26,16 @@ services:
       options:
         max-size: "200k"
         max-file: "10"
+  loki:
+    container_name: loki
+    network_mode: "host"
+    image: grafana/loki:latest
+    restart: always
+    volumes:
+      - ./etc-loki:/etc/loki
+      - loki_data:/loki
+    command: -config.file=/etc/loki/loki-config.yml
 volumes:
     prometheus_data: {}
     grafana_data: {}
+    loki_data: {}
