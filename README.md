@@ -1,4 +1,4 @@
-grafana-with-prometheus
+grafana-loki-prometheus
 ============
 
 This are docker-compose files for running grafana, loki and prometheus from official docker images.
