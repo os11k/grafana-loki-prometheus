@@ -15,7 +15,7 @@ Please don't forget to secure your server with iptables.
 ```
 apt-get update && apt-get upgrade -y && apt-get install docker-compose -y
 mkdir /docker && cd /docker
-git clone https://github.com/os11k/grafana-with-prometheus.git
+git clone https://github.com/os11k/grafana-loki-prometheus.git
 cd ./grafana-with-prometheus/
 docker-compose up -d --build
 ```
